@@ -19,5 +19,7 @@ Route::get('/', [ProjectController::class, 'index']);
 Route::get('/search', 'ProjectController@search');
 Route::get('/add', [ProjectController::class, 'add']);
 Route::get('/edit', [ProjectController::class, 'edit']);
-Route::get('/store', [ProjectController::class, 'store']);
+Route::post('/store', [ProjectController::class, 'store']);
+Route::delete('project/{id}', 'ProjectController@destroy');
+Route::delete('projectDeleteAll', 'ProjectController@deleteAll');
 

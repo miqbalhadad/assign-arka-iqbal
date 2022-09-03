@@ -91,6 +91,7 @@
 <script>
     $(document).ready(function() {
         var table = $('#example').DataTable({
+            "pageLength": 5,
             'dom': 'rtip',
             'columnDefs': [{
                 'targets': 0,

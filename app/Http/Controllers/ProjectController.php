@@ -47,12 +47,7 @@ class ProjectController extends Controller
     // function view edit
     public function add()
     {
-        $projects = DB::table("tb_m_project as a")
-        ->join("tb_m_client", function ($join) {
-                $join->on("a.client_id", "=", "tb_m_client.client_id");
-            })
-            ->select("a.project_id", "a.project_name", "tb_m_client.client_name", "a.project_start", "a.project_end", "a.Project_status")
-            ->get();
+        $projects = DB::table("tb_m_project")->get();
         $judul = 'Project';
         $subjudul = 'Tambah Project';
         return view('project.createedit', compact('judul', 'subjudul', 'projects'));
@@ -61,13 +56,7 @@ class ProjectController extends Controller
     // function store to database from add
     public function store(Request $request)
     {
-        $request->validate([
-            'project_name' => 'requred',
-            'client_id' => 'required'
-        ]);
-
         $projectstore = projectModel::create($request->all());
-        return $projectstore;
     }
     // function view edit
     public function edit()
@@ -86,12 +75,17 @@ class ProjectController extends Controller
     }
 
     // delete data by Id
-    public function destroy()
+    public function destroy($id)
     {
-        DB::delete();
-       
-        return redirect()->route('products.index')
-                        ->with('success','Product deleted successfully');
+        $project = projectModel::find($id);
+        $project->delete();
+        return redirect()->back();
     }
 
+
+    public function deleteAll (Request $request)
+    {
+        $ids = $request->ids;
+        projectModel::whereIn('id',explode(",",$ids))->delete();
+    }
 }

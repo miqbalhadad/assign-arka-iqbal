@@ -11,8 +11,8 @@
 
 <!-- Form -->
 <div class="card mt-3">
-    <form class="py-3 px-4" action="{{url('/add')}}" method="POST">
-       
+    <form class="py-3 px-4" action="{{url('/store')}}" method="POST">
+    @csrf 
         <div class="mb-3">
             <label for="projectname" class="form-label">Project Name</label>
             <input type="text" class="form-control" id="projectname" aria-describedby="emailHelp" name="projectname">
