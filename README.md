@@ -23,17 +23,19 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-
-Installation
+<p>
+<ol>Installation
 Clone the Repo:
-> git clone https://github.com/miqbalhadad/assign-arka-iqbal.git
-> cd assign-arka-iqbal
-> composer install
-> cp .env.example .env
-> Set up .env file
-> php artisan key:generate
-> php artisan storage:link
-> php artisan migrate:fresh --seed
-> php artisan serve
+<li> git clone https://github.com/miqbalhadad/assign-arka-iqbal.git </li>
+<li> cd assign-arka-iqbal </li>
+<li> composer install </li>
+<li> cp .env.example .env </li>
+<li> Set up .env file </li>
+<li> php artisan key:generate </li>
+<li> php artisan storage:link </li>
+<li> php artisan migrate:fresh --seed </li>
+<li> php artisan serve  </li>
 http://127.0.0.1:8000/
 If you like our project please leave a star ❤
+</ol>
+</p>
